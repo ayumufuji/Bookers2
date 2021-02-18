@@ -1,0 +1,31 @@
+<div class="container">  <!-- この行を追加 -->
+   <div class="row">
+      <div class="col-md-3">
+         <%= render 'layouts/list', user: @show_user %>
+      </div>
+      <div class="col-md-8 offset-md-1">
+         <h2>Book detail</h2>
+            <table class="table table-hover table-inverse">
+               
+                  <tr>
+　　                 <th><%= attachment_image_tag @show_book.user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg" %>
+　                       <%= link_to @show_book.user.name, user_path(@show_user) %><th>
+　　                 <th><%= link_to @show_book.title, book_path(@show_book.id) %><th>
+　　                 <th><%= @show_book.body %></th>
+　　                 <th>
+　　                    <% if @show_user.id == current_user.id %>
+                        <%= link_to "Edit", edit_book_path(@show_book.id),class:"btn btn-sm btn-success edit_book_17061"%>
+                        <% end %>
+                     </th>
+                     <th>
+                        <% if @show_user.id == current_user.id %>
+                        <%= link_to "Destroy", book_path(@show_book.id), method: :delete,class:"btn btn-sm btn-danger destroy_book_17061"%>
+                        <% end %>
+                     </th>
+　                   </tr>
+　             </tbody>
+            </table>
+          </div>
+      </div>
+  </div>
+
