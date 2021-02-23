@@ -34,7 +34,7 @@ before_action :ensure_correct_user, only:[:edit]
     @book = Book.new
     @show_book = Book.find(params[:id])
     @show_user = @show_book.user
-    @post_comment = PostComment.new
+    @book_comment = BookComment.new
   end
 
 
